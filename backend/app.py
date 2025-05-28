@@ -28,7 +28,12 @@ def set_board_state():
         json.dump(data, f, indent=4)
     return jsonify(success=True)
 
-
+@app.route('/resetBoard', methods=['POST'])
+def reset_board_state():
+    empty_state = { "board" : ([None] * 9) }
+    with open('data.json', 'w') as f:
+        json.dump(empty_state, f, indent=4)
+    return jsonify(success=True)
 
 
 if __name__ == "__main__":

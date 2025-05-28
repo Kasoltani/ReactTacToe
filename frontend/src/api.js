@@ -11,5 +11,10 @@ export function setBoardState(data){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
     });
+}
 
+export function resetBoard(){
+    return fetch("http://127.0.0.1:5000/resetBoard", {
+        method: "POST"
+    });
 }
