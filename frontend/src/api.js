@@ -1,6 +1,15 @@
 export function getBoardState(){
-    fetch('http://127.0.0.1:5000', {
+    return fetch('http://127.0.0.1:5000/getBoard', {
         method: "GET"
     })
-        .then(response => response.json())
+        .then(response => response.json());
+}
+
+export function setBoardState(data){
+    return fetch('http://127.0.0.1:5000/setBoard', {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+
 }

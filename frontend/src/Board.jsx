@@ -1,17 +1,22 @@
-import {useState} from 'react'
+import { useState, useEffect } from 'react'
 import './Board.css'
 import * as api from './api.js'
 
 function Board(){
     const [board, updateBoard] = useState(new Array(9).fill(null));
     
+    useEffect(() => {
+        api.getBoardState().then(response => updateBoard(response.board));
+    }, []);
+
     function handleClick(squareId){
-        const newBoard = [...board];
         console.log(`clicking square with index ${squareId}`);
-        newBoard[squareId] = 'X'
-        updateBoard(newBoard);
+        const data = {'squareId': squareId}
+        api.setBoardState(data)
+            .then(() => api.getBoardState())
+            .then((response) => updateBoard(response.board))
     }
-    
+
     return (
         <>
             <div className="board">
