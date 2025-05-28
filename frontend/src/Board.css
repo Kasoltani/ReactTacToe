@@ -1,0 +1,21 @@
+.board {
+    margin:auto;
+    background-color:darkgreen;
+    width:20vw;
+    height:20vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.square {
+    border:1px solid black;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
