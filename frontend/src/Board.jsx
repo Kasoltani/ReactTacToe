@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import './Board.css'
+import * as api from './api.js'
 
 function Board(){
     const [board, updateBoard] = useState(new Array(9).fill(null));
+    
     function handleClick(squareId){
         const newBoard = [...board];
         console.log(`clicking square with index ${squareId}`);
