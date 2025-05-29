@@ -1,14 +1,7 @@
-import { useState, useEffect } from 'react'
 import './Board.css'
 import * as api from './api.js'
 
-function Board(){
-    const [board, updateBoard] = useState(new Array(9).fill(null));
-    
-    useEffect(() => {
-        api.getBoardState().then(response => updateBoard(response.board));
-    }, []);
-
+function Board({ board, updateBoard }){
     function handleClick(squareId){
         console.log(`clicking square with index ${squareId}`);
         const data = {'squareId': squareId}
